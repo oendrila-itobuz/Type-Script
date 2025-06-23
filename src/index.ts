@@ -1,2 +1,4 @@
-const greet = (name: string): void => console.log(`Hello, ${name}!`);
-greet("TypeScript");
+import { greet,Direction,move } from "./direction";
+
+greet("Hello World");
+move(Direction.Up);
