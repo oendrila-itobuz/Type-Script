@@ -107,3 +107,16 @@ type IsString<T> = T extends string ? 'Yes' : 'No';
 type Result1 = IsString<string>; // 'Yes'
 type Result2 = IsString<number>; // 'No'
 
+type ReadOnly<T> = { readonly [P in keyof T]: T[P] };
+
+interface User {
+  id: number;
+  name: string;
+}
+type ReadOnlyUser = ReadOnly<User>;
+const user: ReadOnlyUser = {
+  id: 1,
+  name: 'Alice'
+};
+// user.id = 2; // Error: Cannot assign to 'id' because it is a read-only property
+// user.name = 'Bob';
